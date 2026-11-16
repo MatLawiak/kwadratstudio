@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================ -->
+  <!-- GTM HEAD PLACEHOLDER                                          -->
+  <!-- Wklej tutaj kod <script> kontenera Google Tag Managera        -->
+  <!-- (GTM-XXXXXX), możliwie najwyżej w sekcji <head>.               -->
+  <!-- ============================================================ -->
+
+  <title>Kwadrat Studio | Wykończenia wnętrz pod klucz</title>
+  <meta name="description" content="Kwadrat Studio wykańcza mieszkania i domy pod klucz: projekt 3D, materiały, ekipy i sprzątanie po remoncie. Gwarancja terminu w umowie. (Strona demonstracyjna Akademii Integratora)">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bone: '#F7F4EF',
+            sand: '#ECE5DA',
+            stone: '#CFC6B8',
+            taupe: '#8C8276',
+            anthracite: '#26272A',
+            graphite: '#3A3B3F',
+            sage: { DEFAULT: '#7F8F74', dark: '#66765C', light: '#E4E9DF' },
+            brass: { DEFAULT: '#B08A57', dark: '#94733F' }
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .field {
+      width: 100%; border: 1px solid #CFC6B8; background: #fff; border-radius: 10px;
+      padding: 0.75rem 0.9rem; font-size: 0.95rem; color: #26272A; transition: border-color .15s, box-shadow .15s;
+    }
+    .field:focus { outline: none; border-color: #7F8F74; box-shadow: 0 0 0 3px rgba(127,143,116,.22); }
+    .field:user-invalid { border-color: #B4533C; }
+    select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8276' stroke-width='1.6' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.4rem; }
+    .label { display: block; font-size: 0.8rem; font-weight: 500; color: #3A3B3F; margin-bottom: 0.35rem; }
+    .grid-lines {
+      background-image: linear-gradient(rgba(38,39,42,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(38,39,42,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .flash { animation: flash 1.2s ease-out; }
+    @keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(176,138,87,.55); } 100% { box-shadow: 0 0 0 14px rgba(176,138,87,0); } }
+    #dl-log pre { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body class="bg-bone text-anthracite antialiased pb-16">
+
+  <!-- ============================================================ -->
+  <!-- GTM BODY PLACEHOLDER                                          -->
+  <!-- Wklej tutaj kod <noscript> kontenera Google Tag Managera      -->
+  <!-- (GTM-XXXXXX), zaraz po otwarciu znacznika <body>.              -->
+  <!-- ============================================================ -->
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="sticky top-0 z-40 bg-bone/90 backdrop-blur border-b border-stone/60">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="Kwadrat Studio, strona główna">
+        <span class="w-8 h-8 border-2 border-anthracite grid place-items-center">
+          <span class="w-3 h-3 bg-brass"></span>
+        </span>
+        <span class="font-serif text-xl font-medium tracking-tight">Kwadrat Studio</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-graphite">
+        <a href="#jak-pracujemy" class="hover:text-anthracite transition">Jak pracujemy</a>
+        <a href="#pakiety" class="hover:text-anthracite transition">Pakiety wykończenia</a>
+        <a href="#kontakt" class="hover:text-anthracite transition">Kontakt</a>
+      </div>
+      <a href="#wycena" id="nav-cta" class="inline-flex items-center rounded-full bg-anthracite text-bone text-sm font-medium px-4 sm:px-5 py-2.5 hover:bg-graphite transition">
+        Bezpłatna wycena
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO + QUICK LEAD FORM ===================== -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 grid-lines pointer-events-none" aria-hidden="true"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-14 lg:py-24 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+
+        <div class="lg:col-span-7 pt-2">
+          <p class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-sage-dark mb-6">
+            <span class="w-6 h-px bg-sage-dark"></span> Wykończenia wnętrz pod klucz · Poznań i okolice
+          </p>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.08] font-medium tracking-tight">
+            Wykończymy Twoje mieszkanie pod klucz. <span class="text-taupe">Bez stresu, ukrytych dopłat i pilnowania ekip.</span>
+          </h1>
+          <p class="mt-6 text-lg text-graphite/90 max-w-xl leading-relaxed">
+            Odbierasz klucze od dewelopera? Przejmujemy cały proces – od projektu 3D, przez materiały, aż po sprzątanie po remoncie. Z gwarancją terminu w umowie.
+          </p>
+          <dl class="mt-10 grid grid-cols-3 max-w-lg border-t border-stone/70 pt-6 gap-4">
+            <div><dt class="text-xs text-taupe">Oddanych mieszkań</dt><dd class="font-serif text-2xl mt-1">340+</dd></div>
+            <div><dt class="text-xs text-taupe">Średni czas realizacji</dt><dd class="font-serif text-2xl mt-1">9 tyg.</dd></div>
+            <div><dt class="text-xs text-taupe">Gwarancja na prace</dt><dd class="font-serif text-2xl mt-1">5 lat</dd></div>
+          </dl>
+        </div>
+
+        <!-- Quick Lead Form -->
+        <div id="wycena" class="lg:col-span-5 scroll-mt-24">
+          <div id="quick-card" class="bg-white rounded-2xl shadow-[0_20px_60px_-25px_rgba(38,39,42,.35)] border border-stone/50 p-6 sm:p-7">
+
+            <form id="quick-lead-form" name="quick_lead_form" data-form-type="quick_estimate" novalidate>
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-serif text-2xl font-medium">Szybka wycena w 24h</h2>
+                <span class="text-[11px] font-medium bg-sage-light text-sage-dark rounded-full px-2.5 py-1">bezpłatnie</span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <label for="q-size" class="label">Metraż mieszkania</label>
+                  <select id="q-size" name="apartment_size" class="field" required>
+                    <option value="" disabled selected>Wybierz metraż</option>
+                    <option value="do_45">Do 45 m²</option>
+                    <option value="45_70">45 – 70 m²</option>
+                    <option value="70_100">70 – 100 m²</option>
+                    <option value="powyzej_100">Powyżej 100 m²</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="q-standard" class="label">Standard wykończenia</label>
+                  <select id="q-standard" name="finish_standard" class="field" required>
+                    <option value="" disabled selected>Wybierz standard</option>
+                    <option value="komfort">Komfort (od 1 600 zł/m²)</option>
+                    <option value="premium">Premium (od 2 200 zł/m²)</option>
+                    <option value="indywidualny">Indywidualny / Architekt</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="q-name" class="label">Imię</label>
+                  <input id="q-name" name="first_name" type="text" class="field" autocomplete="given-name" placeholder="np. Anna" required>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="q-phone" class="label">Numer telefonu</label>
+                    <input id="q-phone" name="phone" type="tel" class="field" autocomplete="tel" placeholder="+48 ..." pattern="[0-9+\s\-()]{9,}" required>
+                  </div>
+                  <div>
+                    <label for="q-email" class="label">Adres e-mail</label>
+                    <input id="q-email" name="email" type="email" class="field" autocomplete="email" placeholder="adres@domena.pl" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ukryte pola atrybucji (wypełniane automatycznie z URL / sessionStorage) -->
+              <input type="hidden" name="utm_source">
+              <input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign">
+              <input type="hidden" name="utm_content">
+              <input type="hidden" name="utm_term">
+              <input type="hidden" name="gclid">
+              <input type="hidden" name="fbclid">
+
+              <p class="form-error hidden mt-4 text-sm text-[#B4533C]">Uzupełnij wszystkie pola, żebyśmy mogli przygotować wycenę.</p>
+
+              <button type="submit" id="quick-submit" class="mt-6 w-full rounded-xl bg-brass hover:bg-brass-dark text-white font-medium py-3.5 transition">
+                Oblicz koszt wykończenia
+              </button>
+              <p class="mt-3 text-xs text-taupe text-center">Oddzwonimy w ciągu jednego dnia roboczego. Bez zobowiązań.</p>
+            </form>
+
+            <div id="quick-thanks" class="hidden text-center py-6" role="status" aria-live="polite">
+              <div class="w-14 h-14 mx-auto rounded-full bg-sage-light grid place-items-center mb-5">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#66765C" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              </div>
+              <h2 class="font-serif text-2xl font-medium">Dziękujemy!</h2>
+              <p class="mt-3 text-graphite">Przygotowujemy wycenę dla Twojego metrażu<span id="quick-thanks-size"></span>. Odezwiemy się w ciągu 24 godzin.</p>
+              <button type="button" id="quick-reset" class="mt-7 inline-flex items-center gap-2 rounded-full border border-stone px-5 py-2.5 text-sm hover:bg-sand transition">
+                ↺ Wypełnij ponownie (reset do testów)
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== JAK PRACUJEMY ===================== -->
+    <section id="jak-pracujemy" class="bg-white border-y border-stone/50 scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="max-w-2xl">
+          <p class="text-xs font-medium uppercase tracking-[0.18em] text-sage-dark mb-3">Jak pracujemy</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight">Trzy kroki od kluczy dewelopera do wprowadzenia się</h2>
+        </div>
+        <ol class="mt-12 grid md:grid-cols-3 gap-6">
+          <li class="rounded-2xl bg-bone border border-stone/50 p-7">
+            <span class="font-serif text-5xl text-brass">01</span>
+            <h3 class="mt-5 text-lg font-semibold">Bezpłatna konsultacja i kosztorys w 24h</h3>
+            <p class="mt-3 text-graphite/85 leading-relaxed">Rozmawiamy o Twoich potrzebach i budżecie. Następnego dnia dostajesz kosztorys z rozpisanymi pozycjami, bez gwiazdek i „orientacyjnych” kwot.</p>
+          </li>
+          <li class="rounded-2xl bg-bone border border-stone/50 p-7">
+            <span class="font-serif text-5xl text-brass">02</span>
+            <h3 class="mt-5 text-lg font-semibold">Projekt 3D i dobór materiałów w jednym miejscu</h3>
+            <p class="mt-3 text-graphite/85 leading-relaxed">Architekt pokazuje wnętrza w wizualizacjach, a płytki, podłogi i armaturę wybierasz w naszym showroomie. Bez jeżdżenia po hurtowniach.</p>
+          </li>
+          <li class="rounded-2xl bg-bone border border-stone/50 p-7">
+            <span class="font-serif text-5xl text-brass">03</span>
+            <h3 class="mt-5 text-lg font-semibold">Realizacja pod nadzorem koordynatora i odbiór kluczy</h3>
+            <p class="mt-3 text-graphite/85 leading-relaxed">Jeden koordynator pilnuje ekip, dostaw i harmonogramu. Co tydzień dostajesz zdjęcia z postępu, a na koniec mieszkanie po sprzątaniu.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== PAKIETY ===================== -->
+    <section id="pakiety" class="scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="max-w-2xl">
+          <p class="text-xs font-medium uppercase tracking-[0.18em] text-sage-dark mb-3">Pakiety wykończenia</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight">Wybierz standard, my zajmiemy się resztą</h2>
+        </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+
+          <article class="rounded-2xl border border-stone/70 bg-white p-7 flex flex-col">
+            <h3 class="font-serif text-2xl font-medium">Komfort</h3>
+            <p class="mt-1 text-sm text-taupe">od 1 600 zł/m²</p>
+            <ul class="mt-6 space-y-3 text-sm text-graphite flex-1">
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Projekt funkcjonalny i 2 wizualizacje</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Panele winylowe lub laminowane</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Łazienka z płytkami do 60 × 60 cm</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Drzwi wewnętrzne z montażem</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Malowanie i sprzątanie końcowe</li>
+            </ul>
+            <a href="#wycena" class="mt-8 text-center rounded-xl border border-anthracite py-3 text-sm font-medium hover:bg-anthracite hover:text-bone transition">Wyceń pakiet Komfort</a>
+          </article>
+
+          <article class="rounded-2xl bg-anthracite text-bone p-7 flex flex-col relative md:-translate-y-3 shadow-xl">
+            <span class="absolute top-6 right-6 text-[11px] font-medium bg-brass text-white rounded-full px-2.5 py-1">najczęściej wybierany</span>
+            <h3 class="font-serif text-2xl font-medium">Premium</h3>
+            <p class="mt-1 text-sm text-stone">od 2 200 zł/m²</p>
+            <ul class="mt-6 space-y-3 text-sm text-bone/90 flex-1">
+              <li class="flex gap-2.5"><span class="text-brass">✓</span> Pełny projekt 3D wszystkich pomieszczeń</li>
+              <li class="flex gap-2.5"><span class="text-brass">✓</span> Deska warstwowa z drewna dębowego</li>
+              <li class="flex gap-2.5"><span class="text-brass">✓</span> Wielkoformatowe spieki w łazience</li>
+              <li class="flex gap-2.5"><span class="text-brass">✓</span> Zabudowa kuchenna na wymiar</li>
+              <li class="flex gap-2.5"><span class="text-brass">✓</span> Oświetlenie liniowe i sufity podwieszane</li>
+            </ul>
+            <a href="#wycena" class="mt-8 text-center rounded-xl bg-brass hover:bg-brass-dark py-3 text-sm font-medium text-white transition">Wyceń pakiet Premium</a>
+          </article>
+
+          <article class="rounded-2xl border border-stone/70 bg-white p-7 flex flex-col">
+            <h3 class="font-serif text-2xl font-medium">Indywidualny</h3>
+            <p class="mt-1 text-sm text-taupe">wycena po konsultacji z architektem</p>
+            <ul class="mt-6 space-y-3 text-sm text-graphite flex-1">
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Autorski projekt architekta wnętrz</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Meble i stolarka wyłącznie na wymiar</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Materiały spoza standardowego katalogu</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Instalacje smart home</li>
+              <li class="flex gap-2.5"><span class="text-sage-dark">✓</span> Nadzór autorski do ostatniego detalu</li>
+            </ul>
+            <a href="#kontakt" class="mt-8 text-center rounded-xl border border-anthracite py-3 text-sm font-medium hover:bg-anthracite hover:text-bone transition">Umów konsultację</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== KONTAKT (STANDARD CONTACT FORM) ===================== -->
+    <section id="kontakt" class="bg-sand/70 border-t border-stone/50 scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 grid lg:grid-cols-12 gap-10">
+
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.18em] text-sage-dark mb-3">Kontakt</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight">Umów bezpłatną konsultację z architektem wnętrz</h2>
+          <p class="mt-5 text-graphite leading-relaxed">Spotkanie trwa około godziny, w showroomie albo online. Przynieś rzut mieszkania od dewelopera, a resztę przygotujemy my.</p>
+          <div class="mt-8 space-y-2 text-sm text-graphite">
+            <p><span class="text-taupe">Telefon:</span> +48 61 000 00 00</p>
+            <p><span class="text-taupe">E-mail:</span> biuro@kwadratstudio.example</p>
+            <p><span class="text-taupe">Showroom:</span> ul. Przykładowa 12, Poznań</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div id="contact-card" class="bg-white rounded-2xl border border-stone/50 p-6 sm:p-8 shadow-sm">
+
+            <form id="contact-form" name="contact_form" data-form-type="architect_consultation" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="sm:col-span-2">
+                  <label for="c-name" class="label">Imię i nazwisko</label>
+                  <input id="c-name" name="full_name" type="text" class="field" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="c-phone" class="label">Telefon</label>
+                  <input id="c-phone" name="phone" type="tel" class="field" autocomplete="tel" pattern="[0-9+\s\-()]{9,}" required>
+                </div>
+                <div>
+                  <label for="c-email" class="label">E-mail</label>
+                  <input id="c-email" name="email" type="email" class="field" autocomplete="email" required>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="c-handover" class="label">Planowany termin odbioru kluczy</label>
+                  <select id="c-handover" name="handover_date" class="field" required>
+                    <option value="" disabled selected>Wybierz termin</option>
+                    <option value="juz_odebrane">Już odebrane</option>
+                    <option value="1_3_miesiace">Za 1–3 miesiące</option>
+                    <option value="ponad_3_miesiace">Za ponad 3 miesiące</option>
+                  </select>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="c-message" class="label">Dodatkowe informacje / lokalizacja inwestycji</label>
+                  <textarea id="c-message" name="message" rows="4" class="field resize-y" placeholder="np. osiedle, metraż, układ pomieszczeń, Twoje oczekiwania"></textarea>
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="flex items-start gap-3 text-xs text-graphite leading-relaxed cursor-pointer">
+                    <input id="c-consent" name="rodo_consent" type="checkbox" value="yes" class="mt-0.5 w-4 h-4 accent-[#7F8F74] shrink-0" required>
+                    <span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez Kwadrat Studio Sp. z o.o. w celu odpowiedzi na zapytanie i umówienia konsultacji. Szczegóły w <a href="#polityka" class="underline">polityce prywatności</a>.</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Ukryte pola atrybucji (wypełniane automatycznie z URL / sessionStorage) -->
+              <input type="hidden" name="utm_source">
+              <input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign">
+              <input type="hidden" name="utm_content">
+              <input type="hidden" name="utm_term">
+              <input type="hidden" name="gclid">
+              <input type="hidden" name="fbclid">
+
+              <p class="form-error hidden mt-4 text-sm text-[#B4533C]">Uzupełnij wymagane pola i zaznacz zgodę RODO.</p>
+
+              <button type="submit" id="contact-submit" class="mt-6 w-full sm:w-auto rounded-xl bg-anthracite hover:bg-graphite text-bone font-medium px-7 py-3.5 transition">
+                Wyślij zapytanie o konsultację
+              </button>
+            </form>
+
+            <div id="contact-thanks" class="hidden text-center py-10" role="status" aria-live="polite">
+              <div class="w-14 h-14 mx-auto rounded-full bg-sage-light grid place-items-center mb-5">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#66765C" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-medium">Dziękujemy za zapytanie!</h3>
+              <p class="mt-3 text-graphite max-w-md mx-auto">Architekt zadzwoni do Ciebie w ciągu jednego dnia roboczego, żeby ustalić termin konsultacji.</p>
+              <button type="button" id="contact-reset" class="mt-7 inline-flex items-center gap-2 rounded-full border border-stone px-5 py-2.5 text-sm hover:bg-sand transition">
+                ↺ Wypełnij ponownie (reset do testów)
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== STOPKA ===================== -->
+  <footer class="bg-anthracite text-stone">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <p class="font-serif text-xl text-bone">Kwadrat Studio</p>
+        <p class="mt-3 leading-relaxed">Projektowanie i wykończenia wnętrz pod klucz.</p>
+      </div>
+      <div class="leading-relaxed">
+        <p class="text-bone">Kwadrat Studio Sp. z o.o.</p>
+        <p>ul. Przykładowa 12, 60-000 Poznań</p>
+        <p>NIP: 000-000-00-00 · KRS: 0000000000</p>
+      </div>
+      <div id="polityka" class="leading-relaxed">
+        <p class="text-bone">Polityka prywatności</p>
+        <p class="mt-1">Administratorem danych jest Kwadrat Studio Sp. z o.o. Dane z formularzy służą wyłącznie do kontaktu w sprawie zapytania.</p>
+      </div>
+    </div>
+    <div class="border-t border-graphite">
+      <p class="max-w-6xl mx-auto px-4 sm:px-6 py-5 text-xs text-taupe">© 2026 Kwadrat Studio. Firma fikcyjna. Strona demonstracyjna Akademii Integratora, formularze nie wysyłają danych na serwer.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== PASEK „TRYB DEMO AKADEMII” ===================== -->
+  <div id="demo-bar" class="fixed bottom-0 inset-x-0 z-50 bg-[#141517]/95 backdrop-blur text-[#d6d3cd] text-xs border-t border-white/10">
+    <div id="dl-log" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-3">
+      <div class="rounded-lg bg-black/50 border border-white/10 p-3 max-h-56 overflow-auto font-mono text-[11px] leading-relaxed text-[#cfe3c5]">
+        <pre id="dl-log-content">// Tu pojawią się zdarzenia wysłane do window.dataLayer</pre>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-12 flex items-center gap-3">
+      <span class="flex items-center gap-2 font-medium text-white shrink-0">
+        <span class="w-2 h-2 rounded-full bg-brass animate-pulse"></span> Tryb Demo Akademii
+      </span>
+      <span id="utm-status" class="hidden md:inline truncate text-[#9a968f]"></span>
+      <div class="ml-auto flex items-center gap-2 shrink-0">
+        <button type="button" id="dl-toggle" class="rounded-md border border-white/15 px-3 py-1.5 hover:bg-white/10 transition">Podgląd dataLayer</button>
+        <button type="button" id="demo-fill" class="rounded-md bg-brass hover:bg-brass-dark text-white font-medium px-3 py-1.5 transition">Wypełnij testowymi danymi</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    window.dataLayer = window.dataLayer || [];
+
+    /* ---------- 1. Przechwytywanie UTM / click ID ---------- */
+    var TRACKING_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
+    var STORAGE_KEY = 'kwadrat_attribution';
+
+    function readStored() {
+      try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function writeStored(data) {
+      try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* tryb prywatny itp. */ }
+    }
+
+    function captureAttribution() {
+      var params = new URLSearchParams(window.location.search);
+      var stored = readStored();
+      var fromUrl = {};
+      TRACKING_KEYS.forEach(function (key) {
+        var val = params.get(key);
+        if (val) fromUrl[key] = val;
+      });
+      // Nowe parametry w URL nadpisują zapisaną sesję (nowe kliknięcie w reklamę).
+      var merged = Object.keys(fromUrl).length ? Object.assign({}, stored, fromUrl) : stored;
+      writeStored(merged);
+      return merged;
+    }
+
+    function fillHiddenFields(data) {
+      document.querySelectorAll('form').forEach(function (form) {
+        TRACKING_KEYS.forEach(function (key) {
+          var input = form.querySelector('input[type="hidden"][name="' + key + '"]');
+          if (input) input.value = data[key] || '';
+        });
+      });
+    }
+
+    var attribution = captureAttribution();
+    fillHiddenFields(attribution);
+
+    var utmStatus = document.getElementById('utm-status');
+    var attrKeys = Object.keys(attribution);
+    utmStatus.textContent = attrKeys.length
+      ? '· Atrybucja: ' + attrKeys.map(function (k) { return k + '=' + attribution[k]; }).join(' · ')
+      : '· Brak UTM w sesji (dodaj np. ?utm_source=facebook&utm_medium=cpc do adresu)';
+
+    /* ---------- 2. Podgląd dataLayer w pasku demo ---------- */
+    var logBox = document.getElementById('dl-log');
+    var logContent = document.getElementById('dl-log-content');
+    var logged = [];
+
+    function logPush(obj) {
+      logged.unshift(new Date().toLocaleTimeString('pl-PL') + '  dataLayer.push(' + JSON.stringify(obj, null, 2) + ')');
+      logContent.textContent = logged.join('\n\n');
+    }
+
+    function pushEvent(payload) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+      logPush(payload);
+      if (window.console) console.log('[Kwadrat Studio] dataLayer.push', payload);
+    }
+
+    document.getElementById('dl-toggle').addEventListener('click', function () {
+      logBox.classList.toggle('hidden');
+    });
+
+    /* ---------- 3. Obsługa formularzy ---------- */
+    function selectedLabel(select) {
+      var opt = select.options[select.selectedIndex];
+      return opt ? opt.text : '';
+    }
+
+    function validate(form) {
+      var ok = form.checkValidity();
+      form.querySelector('.form-error').classList.toggle('hidden', ok);
+      if (!ok) {
+        var firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+      }
+      return ok;
+    }
+
+    function getAttribution(form) {
+      var out = {};
+      TRACKING_KEYS.forEach(function (key) {
+        var input = form.querySelector('input[type="hidden"][name="' + key + '"]');
+        out[key] = input && input.value ? input.value : undefined;
+      });
+      return out;
+    }
+
+    // Formularz błyskawiczny
+    var quickForm = document.getElementById('quick-lead-form');
+    var quickThanks = document.getElementById('quick-thanks');
+
+    quickForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate(quickForm)) return;
+
+      var size = quickForm.elements['apartment_size'];
+      var standard = quickForm.elements['finish_standard'];
+
+      pushEvent(Object.assign({
+        event: 'generate_lead_quick',
+        form_type: 'quick_estimate',
+        apartment_size: size.value,
+        finish_standard: standard.value,
+        user_email: quickForm.elements['email'].value.trim(),
+        user_phone: quickForm.elements['phone'].value.trim()
+      }, getAttribution(quickForm)));
+
+      document.getElementById('quick-thanks-size').textContent = ' (' + selectedLabel(size) + ')';
+      quickForm.classList.add('hidden');
+      quickThanks.classList.remove('hidden');
+    });
+
+    document.getElementById('quick-reset').addEventListener('click', function () {
+      quickForm.reset();
+      fillHiddenFields(readStored());
+      quickForm.querySelector('.form-error').classList.add('hidden');
+      quickThanks.classList.add('hidden');
+      quickForm.classList.remove('hidden');
+    });
+
+    // Formularz kontaktowy
+    var contactForm = document.getElementById('contact-form');
+    var contactThanks = document.getElementById('contact-thanks');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate(contactForm)) return;
+
+      pushEvent(Object.assign({
+        event: 'generate_lead_contact',
+        form_type: 'architect_consultation',
+        handover_date: contactForm.elements['handover_date'].value,
+        user_email: contactForm.elements['email'].value.trim(),
+        user_phone: contactForm.elements['phone'].value.trim()
+      }, getAttribution(contactForm)));
+
+      contactForm.classList.add('hidden');
+      contactThanks.classList.remove('hidden');
+    });
+
+    document.getElementById('contact-reset').addEventListener('click', function () {
+      contactForm.reset();
+      fillHiddenFields(readStored());
+      contactForm.querySelector('.form-error').classList.add('hidden');
+      contactThanks.classList.add('hidden');
+      contactForm.classList.remove('hidden');
+    });
+
+    /* ---------- 4. „Wypełnij testowymi danymi” ---------- */
+    document.getElementById('demo-fill').addEventListener('click', function () {
+      // Jeżeli formularz jest w stanie podziękowania, najpierw go przywróć.
+      if (quickForm.classList.contains('hidden')) document.getElementById('quick-reset').click();
+      if (contactForm.classList.contains('hidden')) document.getElementById('contact-reset').click();
+
+      quickForm.elements['apartment_size'].value = '45_70';
+      quickForm.elements['finish_standard'].value = 'premium';
+      quickForm.elements['first_name'].value = 'Jan';
+      quickForm.elements['phone'].value = '+48 500 600 700';
+      quickForm.elements['email'].value = 'jan.kowalski@example.com';
+
+      contactForm.elements['full_name'].value = 'Jan Kowalski';
+      contactForm.elements['phone'].value = '+48 500 600 700';
+      contactForm.elements['email'].value = 'jan.kowalski@example.com';
+      contactForm.elements['handover_date'].value = '1_3_miesiace';
+      contactForm.elements['message'].value = 'Osiedle Zielone Tarasy, Poznań Naramowice. Mieszkanie 58 m², 3 pokoje, odbiór w marcu.';
+      contactForm.elements['rodo_consent'].checked = true;
+
+      document.querySelectorAll('.form-error').forEach(function (el) { el.classList.add('hidden'); });
+      ['quick-card', 'contact-card'].forEach(function (id) {
+        var el = document.getElementById(id);
+        el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
